@@ -1,4 +1,4 @@
-# Tradeling.com
+# Amazon.com
 repository on GitHub
 Acceptance Criteria
 
