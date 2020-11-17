@@ -39,6 +39,6 @@
 
     NOTE:-
   1.Kindly use below gmail credential in case Amazon approval is needed.--> saurabhtestmail1234@gmail.com,test@1234
-  2.Difficult to featch amazon account signup OTP from gmail becasue of gmail security restriction. 
+
 
 
