@@ -11,6 +11,15 @@ context('Amazon Tests - SignUp & GiftCard balance check', () => {
     cy.get('#nav-link-accountList').should('visible')
   })
 
+    //This will run after each test
+    afterEach(() => {
+      cy.log('Logout')
+      //Navigate to account options and logout
+      cy.get('#nav-logo-sprites').click()
+      cy.get('#nav-link-accountList').trigger('mouseover')
+      cy.get('#nav-item-signout').click()
+    })
+
 
     //To Signup
     it('Amazon Signup', () => {
