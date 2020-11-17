@@ -14,7 +14,7 @@ context('Amazon Tests - Login & Gift Card', () => {
     cy.log('Login')
     //Enter email
     cy.get('#ap_email').should('visible')
-    cy.get("#ap_email").type("testmaileve@gmail.com")
+    cy.get("#ap_email").type("saurabhtestmail1234@gmail.com")
     cy.get('#continue').click()
     //Enter password and login
     cy.get('#ap_password').should('visible')

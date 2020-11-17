@@ -25,7 +25,7 @@ context('Amazon Tests - SignUp & GiftCard balance check', () => {
     cy.get('#ap_customer_name').should('visible')
     cy.get('#ap_customer_name').click().type('Test Amazon');
     cy.get('#ap_email').should('visible')
-    cy.get('#ap_email').click().type('testmaileve@gmail.com');
+    cy.get('#ap_email').click().type('saurabhtestmail1234@gmail.com');
     cy.get('#ap_password').should('visible')
     cy.get('#ap_password').click().type('test@1234');
     cy.get('#ap_password_check').should('visible')
@@ -42,7 +42,7 @@ context('Amazon Tests - SignUp & GiftCard balance check', () => {
       cy.log('Login')
       //Enter email
       cy.get('#ap_email').should('visible')
-      cy.get("#ap_email").type("testmaileve@gmail.com")
+      cy.get("#ap_email").type("saurabhtestmail1234@gmail.com")
       cy.get('#continue').click()
       //Enter password and login
       cy.get('#ap_password').should('visible')
