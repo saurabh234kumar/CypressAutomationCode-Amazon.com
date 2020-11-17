@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-11-17T09:28:28.164Z",
+    "end": "2020-11-17T09:28:37.259Z",
+    "duration": 9095,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d738181c-cedb-454b-a8c2-95344e5b8245",
+      "title": "",
+      "fullFile": "cypress/integration/specs/allproducts.test.spec.js",
+      "file": "cypress/integration/specs/allproducts.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "99533554-f93e-47de-9b0f-235a383e8c56",
+          "title": "Amazon Tests - Products",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check the total displayed number of results for category Smart Home | Televisions",
+              "fullTitle": "Amazon Tests - Products Check the total displayed number of results for category Smart Home | Televisions",
+              "timedOut": null,
+              "duration": 9042,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots/specs/allproducts.test.spec.js/Amazon Tests - Products -- Check the total displayed number of results for category Smart Home  Televisions (failed).png\"\n}",
+              "code": "cy.log('Verifying total number of smart televisions'); //Navigate to products page\ncy.get('#nav-hamburger-menu').should('visible');\ncy.get('#nav-hamburger-menu').click();\ncy.xpath('//*[text()=\"Smart Home\"]').should('visible');\ncy.xpath('//a[@data-menu-id=\"7\"]').click();\ncy.xpath('//*[text()=\"Televisions\"]').should('visible');\ncy.xpath('//*[text()=\"Televisions\"]').click(); //Verify total number of count and products displayed is same\ncy.get('#s-result-count').then(function ($result) {\n  var totalProductCount = 59;\n  var totalPageCount = 0;\n  var totalCount = parseInt($result.text().split(\" \")[2]);\n  cy.log(totalCount);\n  cy.get('#mainResults ul li').its('length').then(function ($size) {\n    // totalProductCount = totalProductCount + $size\n    //cy.log(totalProductCount)\n    totalPageCount = parseInt(totalCount / totalProductCount);\n    cy.log(totalPageCount);\n    cy.get('#pagnNextString', {\n      timeout: 30000\n    }).click();\n    var genArr = Array.from({\n      length: totalPageCount\n    }, function (v, k) {\n      return k + 1;\n    });\n    cy.wrap(genArr).each(function (index) {\n      cy.xpath('//div[contains(@class,\"s-main-slot s-result-list\")]//span[@class=\"a-size-base\"]', {\n        timeout: 30000\n      }).its('length').then(function ($size) {\n        totalProductCount = totalProductCount + $size;\n        cy.log(totalProductCount);\n      });\n      cy.get('li.a-last', {\n        timeout: 30000\n      }).click();\n      cy.get('li.a-last').then(function ($btn) {\n        if ($btn.hasClass('a-disabled')) {\n          expect(totalCount).to.equal(totalProductCount);\n        } else {\n          $btn.click();\n        }\n      });\n    });\n  });\n});",
+              "err": {
+                "message": "TypeError: Cannot read property 'postMessage' of null",
+                "estack": "TypeError: Cannot read property 'postMessage' of null\n    at b (https://images-na.ssl-images-amazon.com/images/I/01BQUL-hQyL._RC%7C11viIoOEOPL.js,01PRkM1aDfL.js,21sJjuTtH3L.js,21pIV95CwML.js,41pQc8f61ML.js,01XjcM4RNaL.js,01Ni5Zr1JEL.js,51NpfzhTHPL.js,01j5DeZSMzL.js,41FOdXzbfSL.js,21+ed29s7XL.js,51k8pTr5XdL.js,11ZH9OLeweL.js,01ly-sHeg8L.js,31cillXFIZL.js,31vdoo1mL-L.js,410eaF5F7xL.js,21G0MYQzChL.js,21hDW1uFLaL.js,21Oj4ZjdmjL.js,11jC1BUSQzL.js,01+IMZNrmnL.js,21ojI99jc4L.js,41D2UAEJDAL.js,01N0G7oHRlL.js,313O5e5IrML.js,01MXRzfhrcL.js,01a6I0+Jp1L.js,11lOZ4tnQrL.js_.js?AUIClients/SearchPartnerAssets&bXpo0D6M:189:278)",
+                "diff": null
+              },
+              "uuid": "da710105-4b7f-46c7-b4a3-360488a56d3a",
+              "parentUUID": "99533554-f93e-47de-9b0f-235a383e8c56",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "da710105-4b7f-46c7-b4a3-360488a56d3a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9042,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

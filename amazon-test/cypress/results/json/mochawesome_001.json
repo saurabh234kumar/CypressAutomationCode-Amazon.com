@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-11-16T14:46:42.422Z",
+    "end": "2020-11-16T14:46:54.418Z",
+    "duration": 11996,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3943a12b-15ca-4482-bccc-c3c588572e80",
+      "title": "",
+      "fullFile": "cypress/integration/specs/allproducts.test.spec.js",
+      "file": "cypress/integration/specs/allproducts.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "13495d2e-9fc4-485a-bb40-463a3e57952c",
+          "title": "Amazon Tests - Products",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check the total displayed number of results for category Smart Home | Televisions",
+              "fullTitle": "Amazon Tests - Products Check the total displayed number of results for category Smart Home | Televisions",
+              "timedOut": null,
+              "duration": 11918,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots/specs/allproducts.test.spec.js/Amazon Tests - Products -- Check the total displayed number of results for category Smart Home  Televisions (failed).png\"\n}",
+              "code": "cy.log('Verifying total number of smart televisions'); //Navigate to products page\ncy.get('#nav-hamburger-menu').should('visible');\ncy.get('#nav-hamburger-menu').click();\ncy.xpath('//*[text()=\"Smart Home\"]').should('visible');\ncy.xpath('//a[@data-menu-id=\"7\"]').click();\ncy.xpath('//*[text()=\"Televisions\"]').should('visible');\ncy.xpath('//*[text()=\"Televisions\"]').click(); //Verify total number of count and products displayed is same\ncy.get('#s-result-count').then(function ($result) {\n  var totalProductCount = 0;\n  var totalPageCount = 0;\n  var totalCount = parseInt($result.text().split(\" \")[2]);\n  cy.log(totalCount);\n  cy.get('#mainResults ul li').its('length').then(function ($size) {\n    totalProductCount = totalProductCount + $size;\n    cy.log(totalProductCount);\n    totalPageCount = parseInt(totalCount / totalProductCount);\n    cy.log(totalPageCount);\n    cy.get('#pagnNextString', {\n      timeout: 30000\n    }).click();\n    var genArr = Array.from({\n      length: totalPageCount\n    }, function (v, k) {\n      return k + 1;\n    });\n    cy.wrap(genArr).each(function (index) {\n      cy.xpath('//div[contains(@class,\"s-main-slot s-result-list\")]//span[@class=\"a-size-base\"]', {\n        timeout: 30000\n      }).its('length').then(function ($size) {\n        totalProductCount = totalProductCount + $size;\n        cy.log(totalProductCount);\n      });\n      cy.get('li.a-last', {\n        timeout: 30000\n      }).click();\n      cy.get('li.a-last').then(function ($btn) {\n        if ($btn.hasClass('a-disabled')) {\n          expect(totalCount).to.equal(totalProductCount);\n        } else {\n          $btn.click();\n        }\n      });\n    });\n  });\n});",
+              "err": {
+                "message": "AssertionError: expected 146 to equal 59",
+                "estack": "AssertionError: expected 146 to equal 59\n    at getRet (https://www.amazon.com/__cypress/runner/cypress_runner.js:69279:16)\n    at tryCatcher (https://www.amazon.com/__cypress/runner/cypress_runner.js:120203:23)\n    at Function.Promise.attempt.Promise.try (https://www.amazon.com/__cypress/runner/cypress_runner.js:117478:29)\n    at Context.thenFn (https://www.amazon.com/__cypress/runner/cypress_runner.js:69293:23)\n    at Context.then (https://www.amazon.com/__cypress/runner/cypress_runner.js:69660:21)\n    at Context.<anonymous> (https://www.amazon.com/__cypress/runner/cypress_runner.js:81414:21)\n    at https://www.amazon.com/__cypress/runner/cypress_runner.js:80892:33\n    at tryCatcher (https://www.amazon.com/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://www.amazon.com/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://www.amazon.com/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromiseCtx (https://www.amazon.com/__cypress/runner/cypress_runner.js:118233:10)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://www.amazon.com/__cypress/runner/cypress_runner.js:114933:12)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": "- 146\n+ 59\n"
+              },
+              "uuid": "030210e6-582c-420f-8595-a1137f3b1af5",
+              "parentUUID": "13495d2e-9fc4-485a-bb40-463a3e57952c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "030210e6-582c-420f-8595-a1137f3b1af5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11918,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

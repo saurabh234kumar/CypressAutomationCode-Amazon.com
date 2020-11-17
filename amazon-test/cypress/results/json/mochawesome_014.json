@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-17T09:30:27.876Z",
+    "end": "2020-11-17T09:30:46.306Z",
+    "duration": 18430,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4d724ca3-e4c7-4023-a22b-da2dee4b9d2b",
+      "title": "",
+      "fullFile": "cypress/integration/specs/giftcard.test.spec.js",
+      "file": "cypress/integration/specs/giftcard.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0f2be917-61e8-4e1a-ba78-3710259a1c41",
+          "title": "Amazon Tests - Gift Card",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check gift card balance is $0.00",
+              "fullTitle": "Amazon Tests - Gift Card Check gift card balance is $0.00",
+              "timedOut": null,
+              "duration": 12064,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Verifying gift card balance'); //Navigate to account options\ncy.get('#nav-link-accountList').should('visible');\ncy.get('#nav-link-accountList').click(); //Navigate to gift card page\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').should('visible');\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').click(); //Verify gift card balance\ncy.get('#gc-ui-balance-gc-balance-value').should('visible');\ncy.get('#gc-ui-balance-gc-balance-value').should('contain', '$0.00');",
+              "err": {},
+              "uuid": "aee3eef2-7f45-4282-991a-be70df887f9d",
+              "parentUUID": "0f2be917-61e8-4e1a-ba78-3710259a1c41",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aee3eef2-7f45-4282-991a-be70df887f9d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12064,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "reporter": "cypress-mochawesome-reporter",
+    "baseUrl": "https://www.amazon.com",
+    "username": "testmaileve@gmail.com",
+    "password": "test@1234"
+}

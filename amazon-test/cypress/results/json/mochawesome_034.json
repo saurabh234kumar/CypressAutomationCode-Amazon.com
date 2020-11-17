@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-17T10:42:49.114Z",
+    "end": "2020-11-17T10:43:17.466Z",
+    "duration": 28352,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "205a5eb5-8e98-4ee4-8aac-d224617938d2",
+      "title": "",
+      "fullFile": "cypress/integration/specs/SignupGiftcard.test.spec.js",
+      "file": "cypress/integration/specs/SignupGiftcard.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4accdc58-4968-4491-bec8-d84a89d8346b",
+          "title": "Amazon Tests - SignUp & GiftCard balance check",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Amazon Signup",
+              "fullTitle": "Amazon Tests - SignUp & GiftCard balance check Amazon Signup",
+              "timedOut": null,
+              "duration": 14154,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "context('Signup Amazon Tests - Gift Card', function () {\n  // Clicking on Account Menu Item to display hidden element\n  cy.get('#nav-link-accountList').trigger('mouseover'); //click on the hidden element Start Here\n  cy.get('#nav-flyout-ya-newCust > a').should('visible');\n  cy.get('#nav-flyout-ya-newCust > a').click(); //Create account,Fill in the create-account form with full name, email and password\n  cy.get('#ap_customer_name').should('visible');\n  cy.get('#ap_customer_name').click().type('Test Amazon');\n  cy.get('#ap_email').should('visible');\n  cy.get('#ap_email').click().type('testmaileve@gmail.com');\n  cy.get('#ap_password').should('visible');\n  cy.get('#ap_password').click().type('test@1234');\n  cy.get('#ap_password_check').should('visible');\n  cy.get('#ap_password_check').click().type('test@1234');\n  cy.get('#continue').should('visible');\n  cy.get('#continue').click();\n});",
+              "err": {},
+              "uuid": "f384d096-41a6-4846-a5f2-cd1272675ad8",
+              "parentUUID": "4accdc58-4968-4491-bec8-d84a89d8346b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check gift card balance is $0.00",
+              "fullTitle": "Amazon Tests - SignUp & GiftCard balance check Check gift card balance is $0.00",
+              "timedOut": null,
+              "duration": 13904,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Navigate to login page\ncy.get('#nav-link-accountList').click();\ncy.log('Login'); //Enter email\ncy.get('#ap_email').should('visible');\ncy.get(\"#ap_email\").type(\"testmaileve@gmail.com\");\ncy.get('#continue').click(); //Enter password and login\ncy.get('#ap_password').should('visible');\ncy.get(\"#ap_password\").type(\"test@1234\");\ncy.get('#signInSubmit').click();\ncy.log('Verifying gift card balance'); //Navigate to account options\ncy.get('#nav-link-accountList').should('visible');\ncy.get('#nav-link-accountList').click(); //Navigate to gift card page\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').should('visible');\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').click(); //Verify gift card balance\ncy.get('#gc-ui-balance-gc-balance-value').should('visible');\ncy.get('#gc-ui-balance-gc-balance-value').should('contain', '$0.00');",
+              "err": {},
+              "uuid": "ba55b9dd-6836-4c53-8094-58ca00d7928b",
+              "parentUUID": "4accdc58-4968-4491-bec8-d84a89d8346b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f384d096-41a6-4846-a5f2-cd1272675ad8",
+            "ba55b9dd-6836-4c53-8094-58ca00d7928b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28058,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

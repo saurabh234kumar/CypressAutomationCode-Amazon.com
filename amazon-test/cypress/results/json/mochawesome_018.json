@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-17T10:15:09.368Z",
+    "end": "2020-11-17T10:15:21.648Z",
+    "duration": 12280,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "13229d3a-002e-4e76-bb55-9789d26235b5",
+      "title": "",
+      "fullFile": "cypress/integration/specs/SignupGiftcard.test.spec.js",
+      "file": "cypress/integration/specs/SignupGiftcard.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dd76b8b1-45ed-42b8-93b5-e91fe6c0322e",
+          "title": "Amazon Tests - SignUp & GiftCard balance check",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Amazon Signup",
+              "fullTitle": "Amazon Tests - SignUp & GiftCard balance check Amazon Signup",
+              "timedOut": null,
+              "duration": 4414,
+              "state": "failed",
+              "speed": "slow",
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots/specs/SignupGiftcard.test.spec.js/Amazon Tests - SignUp & GiftCard balance check -- Amazon Signup -- after each hook (failed).png\"\n}",
+              "code": "context('Signup Amazon Tests - Gift Card', function () {\n  // Clicking on Account Menu Item to display hidden element\n  cy.get('#nav-link-accountList').trigger('mouseover'); //click on the hidden element Start Here\n  cy.get('#nav-flyout-ya-newCust > a').should('visible');\n  cy.get('#nav-flyout-ya-newCust > a').click(); //Create account,Fill in the create-account form with full name, email and password\n  cy.get('#ap_customer_name').should('visible');\n  cy.get('#ap_customer_name').click().type('Test Amazon');\n  cy.get('#ap_email').should('visible');\n  cy.get('#ap_email').click().type('testmaileve@gmail.com');\n  cy.get('#ap_password').should('visible');\n  cy.get('#ap_password').click().type('test@1234');\n  cy.get('#ap_password_check').should('visible');\n  cy.get('#ap_password_check').click().type('test@1234');\n  cy.get('#continue').should('visible');\n  cy.get('#continue').click();\n});",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find element: '#nav-logo-sprites', but never found it.\n\nBecause this error occurred during a 'after each' hook we are skipping the remaining tests in the current suite: 'Amazon Tests - SignUp & Gif...'",
+                "estack": "CypressError: Timed out retrying: Expected to find element: '#nav-logo-sprites', but never found it.\n\nBecause this error occurred during a 'after each' hook we are skipping the remaining tests in the current suite: 'Amazon Tests - SignUp & Gif...'\n    at Object.cypressErr (https://www.amazon.com/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://www.amazon.com/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://www.amazon.com/__cypress/runner/cypress_runner.js:86194:17)\n    at retry (https://www.amazon.com/__cypress/runner/cypress_runner.js:76849:16)\n    at onFailFn (https://www.amazon.com/__cypress/runner/cypress_runner.js:65634:16)\n    at tryCatcher (https://www.amazon.com/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://www.amazon.com/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://www.amazon.com/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromise0 (https://www.amazon.com/__cypress/runner/cypress_runner.js:118241:10)\n    at Promise._settlePromises (https://www.amazon.com/__cypress/runner/cypress_runner.js:118316:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://www.amazon.com/__cypress/runner/cypress_runner.js:114928:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "659514e0-f4f2-4b86-9de9-0eb8069e6ba3",
+              "parentUUID": "dd76b8b1-45ed-42b8-93b5-e91fe6c0322e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check gift card balance is $0.00",
+              "fullTitle": "Amazon Tests - SignUp & GiftCard balance check Check gift card balance is $0.00",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Navigate to login page\ncy.get('#nav-link-accountList').click();\ncy.log('Login'); //Enter email\ncy.get('#ap_email').should('visible');\ncy.get(\"#ap_email\").type(\"testmaileve@gmail.com\");\ncy.get('#continue').click(); //Enter password and login\ncy.get('#ap_password').should('visible');\ncy.get(\"#ap_password\").type(\"test@1234\");\ncy.get('#signInSubmit').click();\ncy.log('Verifying gift card balance'); //Navigate to account options\ncy.get('#nav-link-accountList').should('visible');\ncy.get('#nav-link-accountList').click(); //Navigate to gift card page\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').should('visible');\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').click(); //Verify gift card balance\ncy.get('#gc-ui-balance-gc-balance-value').should('visible');\ncy.get('#gc-ui-balance-gc-balance-value').should('contain', '$0.00');",
+              "err": {},
+              "uuid": "d111d60c-f321-456f-854e-72be4b544cc0",
+              "parentUUID": "dd76b8b1-45ed-42b8-93b5-e91fe6c0322e",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "659514e0-f4f2-4b86-9de9-0eb8069e6ba3"
+          ],
+          "pending": [],
+          "skipped": [
+            "d111d60c-f321-456f-854e-72be4b544cc0"
+          ],
+          "duration": 4414,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-11-16T14:47:00.412Z",
+    "end": "2020-11-16T14:47:13.154Z",
+    "duration": 12742,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b6d0857d-ce11-4fea-bc0c-8a587c20a3b4",
+      "title": "",
+      "fullFile": "cypress/integration/specs/giftcard.test.spec.js",
+      "file": "cypress/integration/specs/giftcard.test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "09c700ed-b3cb-4e2a-be72-79330ffa9554",
+          "title": "Amazon Tests - Gift Card",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check gift card balance is $0.00",
+              "fullTitle": "Amazon Tests - Gift Card Check gift card balance is $0.00",
+              "timedOut": null,
+              "duration": 460,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"Failed screenshot\",\n    \"value\": \"screenshots/specs/giftcard.test.spec.js/Amazon Tests - Gift Card -- Check gift card balance is $0.00 (failed).png\"\n  },\n  {\n    \"title\": \"Failed screenshot\",\n    \"value\": \"screenshots/specs/giftcard.test.spec.js/Amazon Tests - Gift Card -- Check gift card balance is $0.00 -- after each hook (failed).png\"\n  }\n]",
+              "code": "cy.log('Verifying gift card balance'); //Navigate to account options\ncy.get('#nav-link-accountList').should('visible');\ncy.get('#nav-link-accountList').click(); //Navigate to gift card page\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').should('visible');\ncy.xpath('//*[@data-card-identifier=\"GiftCards\"]').click(); //Verify gift card balance\ncy.get('#gc-ui-balance-gc-balance-value').should('visible');\ncy.get('#gc-ui-balance-gc-balance-value').should('contain', '$0.00');",
+              "err": {
+                "message": "CypressError: cy.click() failed because it requires a DOM element.\n\nThe subject received was:\n\n  > undefined\n\nThe previous command that ran was:\n\n  > cy.get()\n\nBecause this error occurred during a 'after each' hook we are skipping the remaining tests in the current suite: 'Amazon Tests - Gift Card'",
+                "estack": "CypressError: cy.click() failed because it requires a DOM element.\n\nThe subject received was:\n\n  > undefined\n\nThe previous command that ran was:\n\n  > cy.get()\n\nBecause this error occurred during a 'after each' hook we are skipping the remaining tests in the current suite: 'Amazon Tests - Gift Card'\n    at Object.cypressErr (https://www.amazon.com/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://www.amazon.com/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://www.amazon.com/__cypress/runner/cypress_runner.js:86194:17)\n    at ensureElement (https://www.amazon.com/__cypress/runner/cypress_runner.js:74310:21)\n    at validateType (https://www.amazon.com/__cypress/runner/cypress_runner.js:74182:16)\n    at Object.ensureSubjectByType (https://www.amazon.com/__cypress/runner/cypress_runner.js:74210:9)\n    at pushSubjectAndValidate (https://www.amazon.com/__cypress/runner/cypress_runner.js:81127:15)\n    at Context.<anonymous> (https://www.amazon.com/__cypress/runner/cypress_runner.js:81413:18)\n    at https://www.amazon.com/__cypress/runner/cypress_runner.js:80892:33\n    at tryCatcher (https://www.amazon.com/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://www.amazon.com/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://www.amazon.com/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromiseCtx (https://www.amazon.com/__cypress/runner/cypress_runner.js:118233:10)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://www.amazon.com/__cypress/runner/cypress_runner.js:114933:12)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://www.amazon.com/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "2b2a9328-5b79-4c80-953f-c353f9df6b5e",
+              "parentUUID": "09c700ed-b3cb-4e2a-be72-79330ffa9554",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2b2a9328-5b79-4c80-953f-c353f9df6b5e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 460,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
